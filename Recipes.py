@@ -1,0 +1,7 @@
+ribeye = ["ribeye steak", "butter\n"]
+mirepoix = ["celery", "onion", "carrot\n"]
+sausage_soup = ["sausage", "butter", "chicken", "demiglaze", mirepoix, "dill\n"]
+bolognese = [mirepoix, "ground beef", "tomato", "demiglaze\n"]
+sausage = ["sausage\n"]
+scrambled_eggs = ["butter", "eggs", "milk", "sour cream\n"]
+staples = ["cheese", "peanut-butter", "nutella", "bread", "rice", "milk\n"]
