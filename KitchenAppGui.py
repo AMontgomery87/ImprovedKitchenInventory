@@ -9,6 +9,7 @@ with open("GroceryList") as f:
     grocery_counter = Counter(grocery_fileR)
 
 
+
 root1 = tk.Tk()
 root1.geometry("615x500")
 root1.title("Kitchen Inventory Helper")
@@ -40,6 +41,7 @@ main_frame.pack(side=tk.LEFT)
 main_frame.pack_propagate(False)
 main_frame.configure(height=500, width=500)
 
+
 def delete_pages():
     for frame in main_frame.winfo_children():
         frame.destroy()
@@ -62,6 +64,7 @@ def cook_page():
     lb.pack()
     cook_frame.pack(pady=20)
 
+#trying to print line for line, grocery_counter with item:quantity
 def gList_page():
     gList_frame = tk.Frame(main_frame, padx=1, pady=1)
     gList_frame.configure(height=500, width=500)
@@ -69,6 +72,13 @@ def gList_page():
                       text="Current\nGrocery\nList",
                       font=('Bold', 15))
     lb.pack()
+    def grocery_list_print():
+        for grocery in grocery_counter:
+            lb2 = tk.Label(gList_frame, text = grocery)
+            lb3 = tk.Label(gList_frame, text= "\n", font= ("bold", 1))
+            lb2.pack(pady=1)
+            lb3.pack(pady=0)
+    grocery_list_print()
     gList_frame.pack(pady=20)
 
 def future_page():
@@ -87,7 +97,8 @@ def receive_page():
                       text="Receive Groceries",
                       font=('Bold', 18))
     lb.grid(row=0, column=1, columnspan=3)
-#attempting to get yes_press to answer 'yes' and no_press to answer 'no' to trigger item removal from groceryListR
+#attempting to get yes_press to answer 'yes' and no_press to answer 'no' to trigger item removal from groceryList
+#and add to Inventory
 
     def yes_press():
         return
@@ -134,7 +145,9 @@ def exit_page():
     lb.pack()
 
     exit_frame.pack(pady=20)
+home_page()
 
+#options for frames and indicator
 home_button = tk.Button(options_frame, text="Home", bd=0, bg='green', highlightbackground='green', padx=20, pady=20,
                         command=lambda: indicate(home_indicate, home_page))
 home_button.place(x=10, y=10)
@@ -184,11 +197,6 @@ exit_button.place(x=10, y=435)
 exit_indicate= tk.Label(options_frame, text='', bg="green", height=3)
 exit_indicate.place(x=2, y=437)
 
-#yes_button = Button(root1, text="Yes", padx=55, pady=20)
-#yes_button.grid(row=6, column=1, columnspan=1, )
-
-#no_button = Button(root1, text="no", padx=54, pady=20)
-#no_button.grid(row=6, column=2, columnspan=1, )
 
 
 root1.mainloop()
